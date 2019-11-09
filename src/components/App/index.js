@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react';
+import { ReservoirProvider } from '../../data/ReservoirContext';
 
 export const App = () => (
-  <div />
-)
+  <ReservoirProvider>
+    <div></div>
+  </ReservoirProvider>
+);
