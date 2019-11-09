@@ -9,5 +9,5 @@ export default ShastaPage = ({ html }) => {
 }
 
 ShastaPage.getInitialProps = async ({ req }) => {
-  return 
+  return { };
 }
