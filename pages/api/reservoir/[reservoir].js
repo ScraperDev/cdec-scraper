@@ -2,9 +2,7 @@ import { getLastSunday } from "../../../components/api/util/getLastSunday";
 import Axios from "axios";
 
 export default async (req, res) => {
-  // Endpoint for parsing the CDEC reservoir pages & returning them as JSON.
-
-  // Gets reservoir triplet
+  // get reservoir triplet from url param
   const {
     query: { reservoir }
   } = req;
