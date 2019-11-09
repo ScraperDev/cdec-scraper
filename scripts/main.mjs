@@ -1,3 +1,3 @@
 import { ShastaParser } from "./Parsers/ShastaParser.mjs";
 
-new ShastaParser();
+new ShastaParser().getSHA();
