@@ -1,0 +1,1 @@
+export { ShastaScraper } from './ShastaScraper';
