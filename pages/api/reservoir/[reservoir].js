@@ -1,4 +1,5 @@
-import { ShastaParser } from "../../../components/api/parsers";
+import { getLastSunday } from "../../../components/api/util/getLastSunday";
+import Axios from "axios";
 
 export default async (req, res) => {
   // Endpoint for parsing the CDEC reservoir pages & returning them as JSON.
@@ -7,24 +8,11 @@ export default async (req, res) => {
   const {
     query: { reservoir }
   } = req;
-
-  // Initialize parser outside of the switch.
-  let parser;
-
-  // Switch statement that determines which parser to use.
-  // Each valid case instatiates the class & sets it equal to parser var.
-  switch (reservoir) {
-    case "SHA": {
-      parser = new ShastaParser();
-      break;
-    }
-    default: {
-      parser = null;
-    }
+  const reservoirCaps = reservoir.toUpperCase();
+  const reservoirList = ['CLE', 'FOL', 'MIL', 'NML', 'ORO', 'SHA'];
+  if (reservoirList.includes(reservoirCaps)) {
+    const htmlGetRes = await Axios.get(`http://cdec.water.ca.gov/dynamicapp/QueryDaily?s=${reservoirCaps}&end=${getLastSunday()}`);
+    const html = htmlGetRes.data;
+    res.end(html);
   }
-  if (!parser) {
-  } else {
-    console.log(await parser.scrape())
-  }
-  res.end('');  
-};
+}
