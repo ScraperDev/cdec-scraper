@@ -1,4 +1,4 @@
-import { getLastSunday } from "../../../components/util/getLastSunday";
+import { getLastSunday } from "../../../util/getLastSunday";
 import Axios from "axios";
 
 export default async (req, res) => {
