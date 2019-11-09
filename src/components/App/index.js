@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReservoirProvider } from '../../data/ReservoirContext';
+import { ReservoirProvider } from '../contexts/ReservoirContext';
 import { HomePage } from '../../pages/Home';
 
 export const App = () => {
