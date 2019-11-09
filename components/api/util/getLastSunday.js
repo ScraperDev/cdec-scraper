@@ -2,7 +2,6 @@ export const getLastSunday = () => {
   const now = new Date();
   const dayOfWeek = now.getDay();
   if (dayOfWeek === 0) {
-    console.log(now.toISOString().substring(0, 10));
     // It's sunday. Just returns the ISOString's date section
     return now.toISOString().substring(0, 10);
   } else {

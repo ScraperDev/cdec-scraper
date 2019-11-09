@@ -16,7 +16,7 @@ export class ShastaParser extends CoreParser {
 
       // Gets the text from the response body.
       const html = pageRes.data;
-
+      const data = this.parseHTML(html);
       // parseHTML method pulls what I actually *want* from the html.
 
       return true;
@@ -26,7 +26,13 @@ export class ShastaParser extends CoreParser {
     }
   }
   parseHTML(html) {
+    // loads html into cheerio
     const $ = loadHtml(html);
+    // gets all the tabledata nodes with the align=right attribute
+    // on the site, align=right is the nodes with data & align=left
+    // are "spacing nodes" or something stupid.
     const tableDataNodes = $('td').attr('align', 'right');
+    console.log(tableDataNodes.text());
+    return tableDataNodes;
   }
 }
