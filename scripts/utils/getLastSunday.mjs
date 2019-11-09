@@ -1,4 +1,7 @@
 export const getLastSunday = () => {
-  const lastSunday = new Date() - 28800000
-  console.log(lastSunday);
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  if (dayOfWeek === 0) {
+    console.log(now.toISOString().substring(0, 10));
+  }
 }
