@@ -1,4 +1,4 @@
-export class CoreParser extends DOMParser {
+export class CoreParser {
   // Base Parser Class. Handles the functionalities that the
   // Reservoir-Specific parsers share.
 
