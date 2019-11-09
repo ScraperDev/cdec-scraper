@@ -1,7 +1,16 @@
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head';
 const ShastaPage = ({ html }) => {
-  console.log(html);
+  if (process.browser) {
+    async function importParser() {
+      const importedParser = await import("../util/parsers/ShastaParser");
+      const ShastaParser = importedParser.default;
+      const parser = new ShastaParser(html);
+      const doc = parser.document;
+      parser.splitUpData(doc)
+    }
+    importParser()
+  }
   return (
     <>
     <Head>
