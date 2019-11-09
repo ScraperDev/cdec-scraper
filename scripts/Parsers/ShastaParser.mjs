@@ -1,4 +1,4 @@
-import CoreParser from "./index.mjs";
+import CoreParser from "./CoreParser.mjs";
 
 export class ShastaParser extends CoreParser {
   constructor() {

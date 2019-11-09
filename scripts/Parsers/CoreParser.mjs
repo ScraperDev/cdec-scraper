@@ -1,6 +1,6 @@
-import { getLastSunday } from "../utils/index.mjs";
+import { getLastSunday } from "../utils/getLastSunday.mjs";
 
-export class CoreParser extends DOMParser {
+export default class CoreParser extends DOMParser {
   base_reservoir_url = "http://cdec.water.ca.gov/dynamicapp/QueryDaily";
   lastSunday = getLastSunday();
 }

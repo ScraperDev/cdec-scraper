@@ -1,4 +1,3 @@
-import { getLastSunday } from "./utils/getLastSunday.mjs/index.js";
-import { ShastaParser } from "./Parsers/index.mjs";
+import { ShastaParser } from "./Parsers/ShastaParser.mjs";
 
-ShastaParser();
+new ShastaParser();
