@@ -1,1 +1,1 @@
-export { ShastaScraper } from './ShastaScraper';
+export { ShastaScraper } from './ShastaParser';
