@@ -1,4 +1,6 @@
-export class ShastaParser extends DOMParser {
+import { CoreParser } from './CoreParser';
+
+export class ShastaParser extends CoreParser {
   /*
    * The Parser classes are basically just DOMParser plus methods
    * that access the specific data I need. There's probably a
