@@ -24,7 +24,7 @@
     }
   },
   "lint-staged": {
-    "../cdec-scraper/**/*.{html, js, css, md}": [
+    "../cdec-scraper/**/*.{html,js,css,md}": [
       "prettier --single-quote --single-quote-jsx --write",
       "git add"
     ]
