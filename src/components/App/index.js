@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReservoirProvider } from '../../data/ReservoirContext';
+import { HomePage } from '../../pages/Home';
 
-export const App = () => (
-  <ReservoirProvider>
-    <div></div>
-  </ReservoirProvider>
-);
+export const App = () => {
+  return (
+    <ReservoirProvider value='test'>
+      <HomePage />
+    </ReservoirProvider>
+  );
+};
