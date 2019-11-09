@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head';
 const ShastaPage = ({ html }) => {
+  console.log(html);
   return (
     <>
     <Head>
@@ -14,7 +15,9 @@ const ShastaPage = ({ html }) => {
 }
 
 ShastaPage.getInitialProps = async ({ req }) => {
-  return { };
+  const res = await fetch('http://localhost:3000/api/reservoir/SHA');
+  const html = await res.text();
+  return { html };
 }
 
 export default ShastaPage;
