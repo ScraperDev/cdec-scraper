@@ -1,3 +1,3 @@
-import { getLastSunday } from "./utils/getLastSunday.mjs";
+import { getLastSunday } from "./utils/getLastSunday.js";
 
 console.log(getLastSunday());
