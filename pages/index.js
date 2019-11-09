@@ -11,7 +11,7 @@ const Home = () => (
 
 
 
-    <Nav />
+    <Nav    />
 
     <div className="hero">
       <h1 className="title">Welcome to Next.js!</h1>
