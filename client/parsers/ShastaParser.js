@@ -38,7 +38,7 @@ export default class ShastaParser extends DOMParser {
       }
     }
     const lastWeekData = [
-      // Assigns the last 7 data array to objects in the dayData array.
+      // Assigns the last 8 days to objects in the dayData array.
 
       // By the way, there are definitely DRYer
       // ways to do this but I'm on the clock.
