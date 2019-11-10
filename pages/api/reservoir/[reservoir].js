@@ -16,4 +16,6 @@ const handler = async (req, res) => {
   }
 }
 
-export default cors(handler);
+
+const corsObj = cors();
+export default corsObj(handler);
