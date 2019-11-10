@@ -1,7 +1,7 @@
 import { getLastSunday } from "../../../util/getLastSunday";
 import fetch from 'isomorphic-unfetch';
 
-export default async (req, res) => {
+const handler async (req, res) => {
   // get reservoir triplet from url param
   const {
     query: { reservoir }
