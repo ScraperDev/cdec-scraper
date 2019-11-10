@@ -1,10 +1,11 @@
-export default class ShastaParser extends DOMParser {
+import { CoreParser } from "."
+
+export class ShastaParser extends CoreParser {
   constructor(html) {
     super();
     // sets a document object from an html string
     this.document = this.parseFromString(html, "text/html");
   }
-
 
   // Handles the parsing & data organization
   splitUpData(document) {
