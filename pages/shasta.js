@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getLastSunday } from "../util";
 
 export default () => {
   const [rvData, setRvData] = useState(null);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const getData = async () => {
+        // Dynamic import
         const spFile = await import("../util/parsers/ShastaParser");
         const parser = new spFile.ShastaParser();
         const html = await parser.requestHTML('SHA');

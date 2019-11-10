@@ -51,7 +51,9 @@ export class ShastaParser extends CoreParser {
       createDayObject(data.slice(406, 420)),
       createDayObject(data.slice(420))
     ]
-    console.log(lastWeekData);
     return lastWeekData;
+  }
+  makeSummaryString() {
+    
   }
 }
