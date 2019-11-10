@@ -54,5 +54,6 @@ export default class ShastaParser extends DOMParser {
       createDayObject(data.slice(420))
     ]
     console.log(lastWeekData);
+    return lastWeekData;
   }
 }

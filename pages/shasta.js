@@ -1,13 +1,17 @@
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head';
+import { useState } from 'react';
+
 const ShastaPage = ({ html }) => {
+  // const [lastWeekData, setLastWeekData] = useState(null);
   if (process.browser) {
     async function importParser() {
       const importedParser = await import("../util/parsers/ShastaParser");
       const ShastaParser = importedParser.default;
       const parser = new ShastaParser(html);
       const doc = parser.document;
-      parser.splitUpData(doc)
+      console.log('works');
+      setLastWeekData(parser.splitUpData(doc))
     }
     importParser()
   }
@@ -17,7 +21,7 @@ const ShastaPage = ({ html }) => {
       <title>Shasta Reservoir</title>
     </Head>
     <div>
-      
+      {/* {lastWeekData && lastWeekData[0].storage} */}
     </div>
     </>
   );
