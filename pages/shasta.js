@@ -1,5 +1,24 @@
-import { ShastaParser } from "../util"
+import { useEffect, useState } from "react";
+import { getLastSunday } from "../util";
 
 export default () => {
-
+  const [rvData, setRvData] = useState(null);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const getData = async () => {
+        const spFile = await import("../util/parsers/ShastaParser");
+        const parser = new spFile.ShastaParser();
+        const html = await parser.requestHTML('SHA');
+        const data = await parser.splitUpData(html);
+        console.log(data);
+        setRvData(data);
+      }
+      getData();
+    }
+  }, [])
+  return (
+    <div>
+      {rvData && rvData[0]["outflow"]}
+    </div>
+  )
 }

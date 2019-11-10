@@ -1,14 +1,11 @@
 import { CoreParser } from "."
 
 export class ShastaParser extends CoreParser {
-  constructor(html) {
-    super();
-    // sets a document object from an html string
-    this.document = this.parseFromString(html, "text/html");
-  }
+  // Handles the parsing & data organization for the Shasta page
 
-  // Handles the parsing & data organization
-  splitUpData(document) {
+  splitUpData(html) {
+    // Turns HTML into a document
+    const document = this.parseFromString(html, "text/html");
     // Takes the doc's font elements into a NodeList
     const fontNodeList = document.querySelectorAll('font');
 
