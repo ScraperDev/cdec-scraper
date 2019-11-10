@@ -44,6 +44,7 @@ export default class ShastaParser extends DOMParser {
       // ways to do this but I'm on the clock.
 
       // Day 1
+      createDayObject(data.slice(322, 336)),
       createDayObject(data.slice(336, 350)),
       createDayObject(data.slice(350, 364)),
       createDayObject(data.slice(364, 378)),
@@ -52,7 +53,6 @@ export default class ShastaParser extends DOMParser {
       createDayObject(data.slice(406, 420)),
       createDayObject(data.slice(420))
     ]
-    console.log(data);
     console.log(lastWeekData);
   }
 }
