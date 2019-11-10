@@ -37,7 +37,7 @@ export default class ShastaParser extends DOMParser {
         disPwr: arraySlice[13].innerText
       }
     }
-    const lastWeekData = [
+    const lastEightDays = [
       // Assigns the last 8 days to objects in the dayData array.
 
       // By the way, there are definitely DRYer
@@ -53,7 +53,7 @@ export default class ShastaParser extends DOMParser {
       createDayObject(data.slice(406, 420)),
       createDayObject(data.slice(420))
     ]
-    console.log(lastWeekData);
-    return lastWeekData;
+    console.log(lastEightDays);
+    return lastEightDays;
   }
 }
