@@ -10,12 +10,12 @@ export default () => {
         const parser = new spFile.ShastaParser();
         const html = await parser.requestHTML('SHA');
         const data = await parser.splitUpData(html);
-        console.log(data);
+        const summaryString = await parser.makeSummaryString(data);
         setRvData(data);
       }
       getData();
     }
-  }, [])
+  }, []);
   return (
     <div>
       {rvData && rvData[0]["outflow"]}

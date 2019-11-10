@@ -1,4 +1,5 @@
 import { CoreParser } from "."
+import { getLastSunday } from "../getLastSunday";
 
 export class ShastaParser extends CoreParser {
   // Handles the parsing & data organization for the Shasta page
@@ -53,7 +54,14 @@ export class ShastaParser extends CoreParser {
     ]
     return lastWeekData;
   }
-  makeSummaryString() {
-    
+  makeSummaryString(data) {
+    const lastSunday = getLastSunday();
+    const clean = (dirtyString) => {
+      return parseFloat(dirtyString.replace(/,/g, ''));
+    }
+    const startSundayStorage = clean(data[0]['storage']);
+    const endSundayStorage = clean(data[7]['storage']);
+    const totalCapacity = clean(data[0]['tocSto']);
+    console.log(startSundayStorage / totalCapacity);
   }
 }
