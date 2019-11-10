@@ -1,12 +1,13 @@
 export default class ShastaParser extends DOMParser {
   constructor(html) {
     super();
+    // sets a document object from an html string
     this.document = this.parseFromString(html, "text/html");
   }
 
-  splitUpData(document) {
-    // Handles the parsing & data organization
 
+  // Handles the parsing & data organization
+  splitUpData(document) {
     // Takes the doc's font elements into a NodeList
     const fontNodeList = document.querySelectorAll('font');
 
@@ -14,28 +15,37 @@ export default class ShastaParser extends DOMParser {
     const fontArray = Array.from(fontNodeList);
 
     // Slices off the first 16 items that I don't care about.
-    const dataArray = fontArray.slice(16);
+    const data = fontArray.slice(16);
 
-    console.log(dataArray);
-
-    // Takes an array sliced from dataArray & returns an object with the corresponding keys.
-    const createDayObject = (dataSlice) => {
+    // Func that takes an array sliced from dataArray & returns an object with 
+    // the corresponding keys.
+    const createDayObject = (arraySlice) => {
       return {
-        resEle: arraySlice[0],
-        storage: arraySlice[1],
-        resChg: arraySlice[2],
-        tocSto: arraySlice[3],
-        abvToc: arraySlice[4],
-        outflow: arraySlice[5],
-        inflow: arraySlice[6],
-        evap: arraySlice[7],
-        enf: arraySlice[8],
-        rivRel: arraySlice[9],
-        pptInc: arraySlice[10],
-        rain: arraySlice[11],
-        spill: arraySlice[12],
-        disPwr: arraySlice[13]
+        resEle: arraySlice[0].innerText,
+        storage: arraySlice[1].innerText,
+        resChg: arraySlice[2].innerText,
+        tocSto: arraySlice[3].innerText,
+        abvToc: arraySlice[4].innerText,
+        outflow: arraySlice[5].innerText,
+        inflow: arraySlice[6].innerText,
+        evap: arraySlice[7].innerText,
+        enf: arraySlice[8].innerText,
+        rivRel: arraySlice[9].innerText,
+        pptInc: arraySlice[10].innerText,
+        rain: arraySlice[11].innerText,
+        spill: arraySlice[12].innerText,
+        disPwr: arraySlice[13].innerText
       }
     }
+    const lastWeekData = [
+      // Assigns the last 7 data array to objects in the dayData array.
+
+      // By the way, there are definitely DRYer
+      // ways to do this but I'm on the clock.
+
+      // Day 1
+      createDayObject(data.slice(336, 350)),
+    ]
+    console.log(lastWeekData);
   }
 }
