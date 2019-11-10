@@ -1,7 +1,8 @@
 import { getLastSunday } from "../../../util/getLastSunday";
 import fetch from 'isomorphic-unfetch';
+import cors from 'micro-cors';
 
-const handler async (req, res) => {
+const handler = async (req, res) => {
   // get reservoir triplet from url param
   const {
     query: { reservoir }
@@ -14,3 +15,5 @@ const handler async (req, res) => {
     res.end(html);
   }
 }
+
+export default cors(handler);
