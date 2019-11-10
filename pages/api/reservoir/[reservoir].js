@@ -1,6 +1,8 @@
-import { getLastSunday } from "../../../util/getLastSunday";
 import fetch from 'isomorphic-unfetch';
-import cors from 'micro-cors';
+// import cors from 'micro-cors';
+
+// Can't use the index.js 
+import { getLastSunday } from "../../../util";
 
 const handler = async (req, res) => {
   // get reservoir triplet from url param
@@ -17,5 +19,6 @@ const handler = async (req, res) => {
 }
 
 
-const corsObj = cors();
-export default corsObj(handler);
+// const corsObj = cors();
+// export default corsObj(handler);
+export default handler;
