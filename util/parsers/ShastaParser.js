@@ -18,8 +18,6 @@ export default class ShastaParser extends DOMParser {
 
     // Creates a two-dimensional array, with one dimension being "data types"
     // and the other being "date"
-    const dayArray = [];
-    const currentPosition = 0;
-    dayArray.slice(currentPosition, currentPosition + 14);
+    console.log(dataArray);
   }
 }
