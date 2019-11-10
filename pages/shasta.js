@@ -3,12 +3,14 @@ import Head from 'next/head';
 import { useState } from 'react';
 
 const ShastaPage = ({ html }) => {
-  // const [lastWeekData, setLastWeekData] = useState(null);
+  const [lastWeekData, setLastWeekData] = useState(null);
   if (process.browser) {
     async function importParser() {
+      console.log('works4')
       const importedParser = await import("../util/parsers/ShastaParser");
       const ShastaParser = importedParser.default;
       const parser = new ShastaParser(html);
+      console.log('works3')
       const doc = parser.document;
       console.log('works');
       setLastWeekData(parser.splitUpData(doc))
@@ -21,7 +23,7 @@ const ShastaPage = ({ html }) => {
       <title>Shasta Reservoir</title>
     </Head>
     <div>
-      {/* {lastWeekData && lastWeekData[0].storage} */}
+      {lastWeekData && lastWeekData[0].storage}
     </div>
     </>
   );
