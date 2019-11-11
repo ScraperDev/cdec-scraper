@@ -90,7 +90,7 @@ export class ShastaParser extends CoreParser {
 
     return `As of Sunday, ${getLastSunday()}, storage in Shasta Reservoir was approximately 
       ${data[7]['storage']} AF (${endPctOfMax}% of capacity). That's 
-      ${storageUpOrDown} ${storageChange} AF (${pctOfMaxChange}%) from the sunday before.
+      ${storageUpOrDown} ${storageChange} AF (${pctOfMaxChange}%) from the Sunday before.
       Total capacity is about ${numberWithCommas(maxCapacity)} AF. The weekly average for
       daily inflows was calculated at ${calcAverageFlow("inflow").toFixed(2)} CFS and the weekly average 
       for daily outflows was calculated at ${calcAverageFlow('outflow').toFixed(2)} CFS.
