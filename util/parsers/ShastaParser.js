@@ -57,23 +57,43 @@ export class ShastaParser extends CoreParser {
   makeSummaryString(data) {
 
     const clean = (dirtyString) => {
+      // Removes commas
       return parseFloat(dirtyString.replace(/,/g, ''));
     }
 
-    function numberWithCommas(x) {
+    const numberWithCommas = (x) => {
+      // Magical regex. Don't touch.
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    const calcAverageFlow = (flowType) => {
+      // calculates average outflow or inflow.
+      const flowArray = [];
+      data.map((day) => {
+        flowArray.push(clean(day[flowType]));
+      });
+      // Removes first day
+      flowArray.shift();
+      return flowArray.reduce((a, b) => a+b, 0) / 7;
     }
 
     const startSundayStorage = clean(data[0]['storage']);
     const endSundayStorage = clean(data[7]['storage']);
+
     const storageChange = numberWithCommas(Math.abs(startSundayStorage - endSundayStorage));
     const storageUpOrDown = (startSundayStorage - endSundayStorage > 0) ? 'down': 'up';
     const maxCapacity = 4552100;
+
     const startPctOfMax = (startSundayStorage / maxCapacity).toString().substring(2, 4);
     const endPctOfMax = (endSundayStorage / maxCapacity).toString().substring(2, 4);
     const pctOfMaxChange = Math.abs(endPctOfMax - startPctOfMax);
-    return `As of Sunday, ${getLastSunday()}, storage in Shasta Reservoir was approximately 
-      ${data[7]['storage']} AF (${endPctOfMax}% of capacity). That's ${storageUpOrDown} ${storageChange} AF (${pctOfMaxChange}%) from the sunday before.`;
 
+    return `As of Sunday, ${getLastSunday()}, storage in Shasta Reservoir was approximately 
+      ${data[7]['storage']} AF (${endPctOfMax}% of capacity). That's 
+      ${storageUpOrDown} ${storageChange} AF (${pctOfMaxChange}%) from the sunday before.
+      Total capacity is about ${numberWithCommas(maxCapacity)} AF. The weekly average for
+      daily inflows was calculated at ${calcAverageFlow("inflow")} CFS and the weekly average 
+      for daily outflows was calculated at ${calcAverageFlow('outflow')}
+      `;
   }
 }
