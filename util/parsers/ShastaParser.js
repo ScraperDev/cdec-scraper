@@ -59,12 +59,21 @@ export class ShastaParser extends CoreParser {
     const clean = (dirtyString) => {
       return parseFloat(dirtyString.replace(/,/g, ''));
     }
+
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     const startSundayStorage = clean(data[0]['storage']);
     const endSundayStorage = clean(data[7]['storage']);
+    const storageChange = numberWithCommas(Math.abs(startSundayStorage - endSundayStorage));
+    const storageUpOrDown = (startSundayStorage - endSundayStorage > 0) ? 'down': 'up';
     const maxCapacity = 4552100;
     const startPctOfMax = (startSundayStorage / maxCapacity).toString().substring(2, 4);
     const endPctOfMax = (endSundayStorage / maxCapacity).toString().substring(2, 4);
-    return `As of Sunday, ${getLastSunday()}, storage in Shasta Reservoir was approximately ${data[7]['storage']} AF (${endPctOfMax}% of capacity)`;
+    const pctOfMaxChange = Math.abs(endPctOfMax - startPctOfMax);
+    return `As of Sunday, ${getLastSunday()}, storage in Shasta Reservoir was approximately 
+      ${data[7]['storage']} AF (${endPctOfMax}% of capacity). That's ${storageUpOrDown} ${storageChange} AF (${pctOfMaxChange}%) from the sunday before.`;
 
   }
 }
