@@ -92,8 +92,8 @@ export class ShastaParser extends CoreParser {
       ${data[7]['storage']} AF (${endPctOfMax}% of capacity). That's 
       ${storageUpOrDown} ${storageChange} AF (${pctOfMaxChange}%) from the sunday before.
       Total capacity is about ${numberWithCommas(maxCapacity)} AF. The weekly average for
-      daily inflows was calculated at ${calcAverageFlow("inflow")} CFS and the weekly average 
-      for daily outflows was calculated at ${calcAverageFlow('outflow')}
+      daily inflows was calculated at ${calcAverageFlow("inflow").toFixed(2)} CFS and the weekly average 
+      for daily outflows was calculated at ${calcAverageFlow('outflow').toFixed(2)} CFS.
       `;
   }
 }
