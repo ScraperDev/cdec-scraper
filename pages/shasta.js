@@ -18,8 +18,15 @@ export default () => {
     }
   }, []);
   return (
-    <div>
-      {summaryString && summaryString}
-    </div>
+    <Card>
+      <Card.Header>
+        <Card.Title>Shasta Reservoir</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Card.Text>
+          {summaryString && summaryString}
+        </Card.Text>
+      </Card.Body>
+    </Card>
   )
 }
