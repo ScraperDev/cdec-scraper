@@ -1,7 +1,11 @@
 import { Container } from "react-bootstrap";
+import { CustomNavbar } from "../Navbar";
 
 export const Layout = ({ children }) => (
-  <Container fluid>
-    {children}
-  </Container>
+  <>
+    <CustomNavbar />
+    <Container fluid>
+      {children}
+    </Container>
+  </>
 )
